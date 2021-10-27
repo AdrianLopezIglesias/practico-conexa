@@ -5,6 +5,20 @@
 	background-color: darkblue;
 	border: 1px solid white;
 }
+.space-earth {
+	display:flex; 
+	width: 10%; 
+	height: 40px; 
+	background-color: green;
+	border: 1px solid white;
+}
+.space-meteor {
+	display:flex; 
+	width: 10%; 
+	height: 40px; 
+	background-color: darkred;
+	border: 1px solid white;
+}
 .space-ship {
 	display:flex; 
 	width: 10%; 

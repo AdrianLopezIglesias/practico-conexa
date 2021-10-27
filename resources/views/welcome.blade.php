@@ -23,7 +23,7 @@
 
 <body class="antialiased">
   <div id="app">
-    <example-component></example-component>
+    <space-travel></space-travel>
   </div>
   <script src="{{ mix('/js/app.js') }}"></script>
 </body>
