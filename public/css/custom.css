@@ -1,0 +1,14 @@
+.space-empty {
+	display:flex; 
+	width: 10%; 
+	height: 40px; 
+	background-color: darkblue;
+	border: 1px solid white;
+}
+.space-ship {
+	display:flex; 
+	width: 10%; 
+	height: 40px; 
+	background-color: blueviolet;
+	border: 1px solid white;
+}
