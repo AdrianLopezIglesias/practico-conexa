@@ -14,22 +14,22 @@
             <h4>Instructions from earth</h4>
           </div>
           <div class="card-body" :key="shipLocation[3]">
-            <div style="height: 580px">
+            <div style="min-height: 580px">
               <div v-if="gameState!='loadingMovements'">
-                <div style="height: 500px">
+                <div style="min-height: 500px">
                   <movement v-for="(movement,index) in movements" v-bind:key="index" v-bind:index="index" v-bind:movement="movement" :current_action="current_action">
                   </movement>
                 </div>
                 <div class="row">
 
                   <div class="col-6">
-                    <button class="w-100 btn btn-warning" :disabled="userMustWait()" v-on:click="getMovements">
+                    <button class="w-100 btn btn-outline-warning" :disabled="userMustWait()" v-on:click="getMovements">
                       <h5>Call for new instructions</h5>
                     </button>
 
                   </div>
                   <div class="col-6">
-                    <button class="w-100 btn btn-success" :disabled="userMustWait()" v-on:click="followInstructions">
+                    <button class="w-100 btn btn-outline-success" :disabled="userMustWait()" v-on:click="followInstructions">
                       <h5>Go with current instructions</h5>
                     </button>
 
@@ -52,7 +52,7 @@
             <h4>Our location</h4>
           </div>
           <div class="card-body">
-            <div style="height: 580px">
+            <div style="min-height: 580px">
               <div class="row" :key="shipLocation[3]" :id="shipLocation[3]">
                 <space v-for="(slots,index) in map" v-bind:key="index" v-bind:meteors="meteors" v-bind:goal="goal" v-bind:slots="slots" v-bind:shipLocation="shipLocation">
                 </space>
@@ -65,13 +65,13 @@
                 </div>
                 <div v-if="this.gameState == 'lost'">
                   <h4>Game Lost</h4>
-                  <button class="w-100 btn btn-success" v-on:click="playAgain">
+                  <button class="w-100 btn btn-outline-danger" v-on:click="playAgain">
                     <h5> Play Again</h5>
                   </button>
                 </div>
                 <div v-if="this.gameState == 'won'">
                   <h1>You won!!!!</h1>
-                  <button class="w-100 btn btn-success" v-on:click="playAgain">
+                  <button class="w-100 btn btn-outline-success" v-on:click="playAgain">
                     <h5> Play Again</h5>
                   </button>
                 </div>
@@ -82,19 +82,7 @@
       </div>
     </div>
     <br>
-    <div class="card">
-      <div class="card-header">
-        <h4>Game Instructions</h4>
-      </div>
-      <div class="card-body">
-        <p>Issue orders to the Ship by clicking "Go with current instructions" button.</p>
-        <p>The spaceship will move to the relative directions as long as it doesn't exit the map.</p>
-        <p>If the spaceship crashes into a meteor you lose the game.</p>
-        <p>You may ask for new instructions from earth by clicking "Call for new instructions" button.</p>
-      </div>
-    </div>
-    <br>
-    <div class="card">
+		    <div class="card">
       <div class="card-header">
         <h4>Game settings</h4>
       </div>
@@ -111,6 +99,19 @@
         </table>
       </div>
     </div>
+    <br>
+    <div class="card">
+      <div class="card-header">
+        <h4>Game Instructions</h4>
+      </div>
+      <div class="card-body">
+        <p>Issue orders to the Ship by clicking "Go with current instructions" button.</p>
+        <p>The spaceship will move to the relative directions as long as it doesn't exit the map.</p>
+        <p>If the spaceship crashes into a meteor you lose the game.</p>
+        <p>You may ask for new instructions from earth by clicking "Call for new instructions" button.</p>
+      </div>
+    </div>
+
     <p></p>
 
   </div>
@@ -207,11 +208,11 @@ export default {
       shipLocation: [0, 0, 'Awaiting orders', 'id'],
       gameState: "playing",
       current_action: ' ',
-      game_speed: 10,
+      game_speed: 1000,
       async_delay: 10,
       meteors: [],
-      goal: [9, 9],
-      game_dificulty: 10
+      goal: [4, 4],
+      game_dificulty: 5
     }
   },
 
@@ -279,7 +280,8 @@ export default {
           this.gameState = "lost"
         }
       })
-      if (goal[0] == this.shipLocation[0] && goal[1] == this.shipLocation[1]) {
+
+      if (this.goal[0] == this.shipLocation[0] && this.goal[1] == this.shipLocation[1]) {
         this.gameState = "won"
       }
     },
