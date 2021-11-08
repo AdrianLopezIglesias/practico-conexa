@@ -24,7 +24,7 @@
 <body class="antialiased">
   <div id="app">
   </div>
-  <script src="{{ mix('/js/app.js') }}"></script>
+  <script src="/js/app.js"></script>
 </body>
 
 </html>

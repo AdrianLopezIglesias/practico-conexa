@@ -15,6 +15,9 @@ const app = {
 	components: { 
 		ShoppingListTable,
 		NavBar },
+	methods: {
+		
+	}
 };
 
 

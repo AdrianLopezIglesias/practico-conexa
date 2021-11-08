@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user();
 });
+Route::post('/tareas', [App\Http\Controllers\TareaController::class, 'getTareas']);
+
 Route::get('/earth', [App\Http\Controllers\MovementController::class, 'earth_response']);
 Route::post('/calculate_position', [App\Http\Controllers\MovementController::class, 'calculate_position']);
